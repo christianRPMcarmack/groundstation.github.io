@@ -24,7 +24,7 @@ function sleep(miliseconds) {
 
 // Connecting to ROS
   var ros = new ROSLIB.Ros({
-    url : 'ws://192.168.20.129:9090'
+    url : 'ws://192.168.1.2:9090'
   });
 
   ros.on('connection', function() {
