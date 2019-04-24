@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>PROJECT DRAGON GROUNDSTATION</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          display: block;
+          margin-left: 0;
+          height: 50%;
+          width: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .button {
+            background-color: #6DBEA0;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .speed {
+            background-color: white;
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+      </style>
+</head>
+  <body class="gb-light">
+    <!-- INFO -->
+    <div class="row my-4">
+        <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="alert alert-success">
+                    <div style="text-align:center;">
+                        <h4 class="alert-heading">PROJECT DRAGON GROUNDSTATION</h4>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-2"></div>
+    </div>
+    
+    <!-- MAP -->
+    <div id="map"></div>
+
+
+
+
+    <div style="text-align:center;">
+    <div class="row my-4">
+        <!-- GPS BUTTON-->
+        <div class="col">
+            <button class="button" onclick="plotGPS()">Plot GPS</button>
+        </div>
+        <!-- JOYSTICK -->
+        <div class="col">
+            <div class="d-flex justify-content-center" style="width: 210px; height: 210px;">
+                <div id="joystick"></div>
+            </div>
+        </div>
+        <!-- KILL SWITCH -->
+        <div class="col">
+                <button class="button" onclick="kill(0)">Kill</button>
+                <button class="button" onclick="kill(2)">Unkill</button>
+        </div>
+    </div>
+
+
+    
+            
+    <!--CURRENT SPEED-->
+    <div class="row">
+            <div class="col-md-4"></div>
+                <div class=" col-md-4">
+                    <p class="speed" id="speedwindow"></p>
+                </div>
+            <div class="col-md-4"></div>
+    </div>
+</div>
+    
+<!--SET SPEED -->
+<div class="row">
+    <div class="col-md-4"></div>
+        <div class=" col-md-4">
+            <label for="robot-speed">
+                <strong></strong>
+            </label>
+            <input type="range" min="15" max="80" class="custom-range" id="robot-speed">
+        </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+<script src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+<script src="https://static.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"></script>
+<script src="//yoannmoinet.github.io/nipplejs/javascripts/nipplejs.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!-- ROS Connection Protocol -->
+<script src="webui.js"></script>
+<!-- Gmaps API Call -->
+<script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBckEuhxtAr9GWLEet4pgZ20MtTjPDz8no&callback=initMap">
+</script>
+
+
+</body>
+</html>
